@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block title %} Blogly Users {% endblock %}
+
+{% block content %}
+<h1>Users</h1>
+<ul class="user-list">
+    {% for user in users %}
+    <li class="profile" style="background-image: url('{{ user.img_url }}');">
+        <a href="/users/{{ user.id }}">{{ user.full_name }}</a>
+    </li>
+    {% endfor %}
+</ul>
+
+<form action="/users/new">
+    <button>Add New User</button>
+</form>
+{% endblock %}
